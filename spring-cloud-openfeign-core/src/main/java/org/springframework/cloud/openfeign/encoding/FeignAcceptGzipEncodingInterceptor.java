@@ -43,7 +43,7 @@ public class FeignAcceptGzipEncodingInterceptor extends BaseRequestInterceptor {
 	 */
 	@Override
 	public void apply(RequestTemplate template) {
-
+		//  在Header 头部添加相应的数据信息
 		addHeader(template, HttpEncoding.ACCEPT_ENCODING_HEADER,
 				HttpEncoding.GZIP_ENCODING, HttpEncoding.DEFLATE_ENCODING);
 	}

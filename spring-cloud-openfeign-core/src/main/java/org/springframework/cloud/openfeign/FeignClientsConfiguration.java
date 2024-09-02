@@ -107,6 +107,7 @@ public class FeignClientsConfiguration {
 	@Bean
 	@ConditionalOnMissingBean
 	public Contract feignContract(ConversionService feignConversionService) {
+		// 创建SpringMvcContract，并设置参数处理器和格式化转换服务.支持SpringMVC注解
 		return new SpringMvcContract(this.parameterProcessors, feignConversionService);
 	}
 

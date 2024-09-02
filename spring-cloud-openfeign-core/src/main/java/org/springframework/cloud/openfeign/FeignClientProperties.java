@@ -90,25 +90,28 @@ public class FeignClientProperties {
 	 * Feign client configuration.
 	 */
 	public static class FeignClientConfiguration {
-
+		// Feign 日志级别。默认为 NONE
 		private Logger.Level loggerLevel;
-
+		// 请求的连接超时时长，单位：毫秒。默认为 10 * 1000 毫秒
 		private Integer connectTimeout;
-
+		// 请求的读取超时时长，单位：毫秒。默认为 60 * 1000 毫秒
 		private Integer readTimeout;
-
+		// 重试策略。默认为不重试
 		private Class<Retryer> retryer;
-
+		// 错误解码器
 		private Class<ErrorDecoder> errorDecoder;
-
+		// 请求拦截器
 		private List<Class<RequestInterceptor>> requestInterceptors;
-
+		// 是否对响应状态码为 404 时，进行解码。默认为 false
 		private Boolean decode404;
-
+		// 解码器。
+		// 为空时，默认创建 SpringDecoder Bean
 		private Class<Decoder> decoder;
-
+		// 编码器。默认为 SpringEncoder
+		// 为空时，默认创建 SpringEncoder Bean
 		private Class<Encoder> encoder;
-
+		// 契约。
+		// 为空时，默认创建 SpringMvcContract Bean，提供对 SpringMVC 注解的支持
 		private Class<Contract> contract;
 
 		public Logger.Level getLoggerLevel() {
